@@ -1,0 +1,113 @@
+.home-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Fundo */
+.top-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.4;
+    width: 100%;
+    height: 100%;
+
+    background-size: cover;
+    background-position: center;
+
+    z-index: 0;
+}
+
+/* Conteúdo por cima do fundo */
+.content {
+    position: relative;
+    z-index: 1;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 2rem;
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0rem;
+}
+
+.title {
+    color: #fff;
+    font-size: 5rem;
+    font-weight: 5rem;
+    margin: 0;
+    
+    text-shadow: 
+        0 0 10px rgba(255,255,255,0.8),
+        0 0 20px rgba(0,0,0,0.8);
+
+}
+
+
+.buttons-container {
+    display: flex;
+    gap: 1rem;
+}
+
+.cardapio-button {
+    width: 150px;
+    height: 50px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.Navbar {
+    position: relative;
+    top: 20px;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* centraliza QuemSomos no meio do Navbar */
+    box-sizing: border-box;
+}
+
+.QuemSomos {
+    color: #fff;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.QuemSomos-underline {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    white-space: nowrap;
+    font-size: 0.85rem;
+    transition: opacity 0.2s ease;
+    z-index: 10;
+}
+
+.QuemSomos:hover .QuemSomos-underline {
+    visibility: visible;
+    opacity: 1;
+}
+

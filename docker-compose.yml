@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:16
+    container_name: burger_db
+    environment:
+      POSTGRES_USER: burger
+      POSTGRES_PASSWORD: burger123
+      POSTGRES_DB: burger_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - burger_data:/var/lib/postgresql/data
+
+volumes:
+  burger_data:
