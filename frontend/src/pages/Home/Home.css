@@ -79,6 +79,7 @@
     display: flex;
     align-items: center;
     justify-content: center; /* centraliza QuemSomos no meio do Navbar */
+    gap: 40px;
     box-sizing: border-box;
 }
 
@@ -111,3 +112,19 @@
     opacity: 1;
 }
 
+.admin-button {
+    color: #ffffff;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    background: none;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 0;
+    font: inherit;
+}

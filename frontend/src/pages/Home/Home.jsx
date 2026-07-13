@@ -13,6 +13,10 @@ function Home() {
                     <span className="QuemSomos-underline">Somos uma equipe apaixonada por hambúrgueres!</span>
                 </div>
 
+                <Link to="/admin">
+                        <button className="admin-button">Administração</button>
+                </Link>
+
             </div>   
             <div className="content">
                 <div className="title-container">

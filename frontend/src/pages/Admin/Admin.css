@@ -1,0 +1,78 @@
+.admin-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.admin-form {
+    width: 100%;
+    max-width: 360px;
+    background: #fff;
+    border: 1px solid #e2e2e2;
+    border-radius: 12px;
+    padding: 32px 28px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.admin-title {
+    text-align: center;
+    margin: 0 0 8px;
+    font-size: 1.4rem;
+    color: #222;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    color: #555;
+    font-weight: 600;
+}
+
+.form-group input {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.15s ease;
+}
+
+.form-group input:focus {
+    border-color: #000;
+}
+
+.admin-erro {
+    color: #b3261e;
+    font-size: 0.85rem;
+    text-align: center;
+    margin: 0;
+}
+
+.login-button {
+    margin-top: 8px;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #000;
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.login-button:hover {
+    background-color: #333;
+}

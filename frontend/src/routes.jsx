@@ -5,6 +5,7 @@ import Login from "./pages/Login/Login";
 import Cadastro from "./pages/Cadastro";
 import Dashboard from "./pages/Dashboard";
 import Cardapio from "./pages/Cardapio/Cardapio";
+import Admin from "./pages/Admin/Admin";
 
 function AppRoutes() {
     return (
@@ -15,6 +16,7 @@ function AppRoutes() {
                 <Route path="/cadastro" element={<Cadastro />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/cardapio" element={<Cardapio />} />
+                <Route path="/admin" element={<Admin />} />
             </Routes>
         </BrowserRouter>
     );
