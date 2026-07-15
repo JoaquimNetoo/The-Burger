@@ -14,13 +14,18 @@ function Home() {
                 </div>
 
                 <Link to="/admin">
-                        <button className="admin-button">Administração</button>
+                    <button className="admin-button">Administração</button>
                 </Link>
 
-            </div>   
+                <Link to="/consultarPedidos">
+                    <button className="admin-button">Consultar meu pedido</button>
+                </Link>
+
+            </div>
             <div className="content">
                 <div className="title-container">
                     <h1 className="title">THE BURGER</h1>
+                    <hr className="title-divider" />
                 </div>
 
                 <div className="buttons-container">

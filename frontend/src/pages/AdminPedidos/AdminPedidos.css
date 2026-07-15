@@ -1,0 +1,158 @@
+.admin-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px 16px 64px;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.admin-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.admin-header h1 {
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+.admin-header-acoes {
+    display: flex;
+    gap: 8px;
+}
+
+.admin-filtro,
+.pedido-status-select {
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 0.9rem;
+    background: #fff;
+}
+
+.admin-atualizar {
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: none;
+    background: #222;
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.admin-atualizar:hover {
+    background: #444;
+}
+
+.admin-logout {
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #333;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.admin-logout:hover {
+    background: #f4f4f4;
+}
+
+.admin-info,
+.admin-erro {
+    text-align: center;
+    padding: 24px;
+    color: #666;
+}
+
+.admin-erro {
+    color: #b3261e;
+}
+
+.admin-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.pedido-card {
+    border: 1px solid #e2e2e2;
+    border-radius: 10px;
+    padding: 16px;
+    background: #fff;
+}
+
+.pedido-card-topo {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.pedido-id {
+    font-weight: 600;
+    display: block;
+}
+
+.pedido-data {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.status-badge {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+.status-aguardando {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-aceito {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status-cancelado {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.status-saiu_para_entrega {
+    background: #cce5ff;
+    color: #004085;
+}
+
+.status-entregue {
+    background: #d6d8db;
+    color: #383d41;
+}
+
+.pedido-itens {
+    font-size: 0.9rem;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+.pedido-itens p {
+    margin: 2px 0;
+}
+
+.pedido-card-rodape {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+}
+
+.pedido-total {
+    font-weight: 600;
+}

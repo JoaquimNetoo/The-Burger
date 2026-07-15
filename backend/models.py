@@ -27,6 +27,7 @@ class Pedido(Base):
     __tablename__ = "pedidos"
 
     id = Column(Integer, primary_key=True, index=True)
+    nome_cliente = Column(String, nullable=False)  # <-- nova coluna
     status = Column(Enum(StatusPedido), default=StatusPedido.aguardando, nullable=False)
     total = Column(Float, nullable=False)
     criado_em = Column(DateTime, default=datetime.utcnow)
@@ -47,3 +48,10 @@ class ItemPedido(Base):
 
     pedido = relationship("Pedido", back_populates="itens")
 
+
+class Admin(Base):
+    __tablename__ = "admins"
+
+    id = Column(Integer, primary_key=True, index=True)
+    username = Column(String, unique=True, nullable=False)
+    senha_hash = Column(String, nullable=False)

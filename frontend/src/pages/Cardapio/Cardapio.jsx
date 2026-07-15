@@ -16,6 +16,7 @@ function Cardapio() {
     const [enviandoPedido, setEnviandoPedido] = useState(false);
     const [erroPedido, setErroPedido] = useState(null);
     const [pedidoConfirmado, setPedidoConfirmado] = useState(null); // { id, status }
+    const [nomeCliente, setNomeCliente] = useState("");
 
     useEffect(() => {
         Promise.all([
@@ -81,7 +82,7 @@ function Cardapio() {
             const res = await fetch("http://localhost:8000/pedidos", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ itens }),
+                body: JSON.stringify({ nome_cliente: nomeCliente, itens }),
             });
 
             if (!res.ok) throw new Error("Falha ao enviar pedido");
@@ -89,6 +90,7 @@ function Cardapio() {
             const pedido = await res.json();
             setPedidoConfirmado({ id: pedido.id, status: pedido.status });
             setItensCarrinho([]);
+            setNomeCliente("");
         } catch (err) {
             console.error("Erro ao confirmar pedido:", err);
             setErroPedido("Não foi possível enviar o pedido. Tente novamente.");
@@ -127,62 +129,74 @@ function Cardapio() {
 
                         <button className="realizar-pedido" onClick={() => setRealizarPedido(true)}>
                             Realizar Pedido
-
-                            {realizarpedido && (
-                                <div className="modal-overlay" onClick={() => setRealizarPedido(false)}>
-                                    <div className="pedido-popup" onClick={(e) => e.stopPropagation()}>
-
-                                        {pedidoConfirmado ? (
-                                            <>
-                                                <h2>Pedido enviado!</h2>
-                                                <p>Pedido #{pedidoConfirmado.id}</p>
-                                                <p>Status: {pedidoConfirmado.status}</p>
-                                                <button
-                                                    className="confirmar-pedido"
-                                                    onClick={() => {
-                                                        setRealizarPedido(false);
-                                                        setPedidoConfirmado(null);
-                                                        setCarrinhoAberto(false);
-                                                    }}
-                                                >
-                                                    Fechar
-                                                </button>
-                                            </>
-                                        ) : (
-                                            <>
-                                                <h2>Finalizando seu pedido!</h2>
-                                                <p>Confira seu pedido antes de confirmar:</p>
-
-                                                {itensCarrinho.map((item) => (
-                                                    <p key={item.id}>
-                                                        {item.quantidade}x {item.nome} -
-                                                        R$ {(item.preco * item.quantidade).toFixed(2)}
-                                                    </p>
-                                                ))}
-
-                                                {erroPedido && <p className="cardapio-erro">{erroPedido}</p>}
-
-                                                <button
-                                                    className="confirmar-pedido"
-                                                    onClick={confirmarPedido}
-                                                    disabled={enviandoPedido}
-                                                >
-                                                    {enviandoPedido ? "Enviando..." : "Confirmar Pedido"}
-                                                </button>
-
-                                                <button
-                                                    className="cancelar-pedido"
-                                                    onClick={() => setRealizarPedido(false)}
-                                                    disabled={enviandoPedido}
-                                                >
-                                                    Cancelar
-                                                </button>
-                                            </>
-                                        )}
-                                    </div>
-                                </div>
-                            )}
                         </button>
+
+                        {realizarpedido && (
+                            <div className="modal-overlay" onClick={() => setRealizarPedido(false)}>
+                                <div className="pedido-popup" onClick={(e) => e.stopPropagation()}>
+
+                                    {pedidoConfirmado ? (
+                                        <>
+                                            <h2>Pedido enviado!</h2>
+                                            <p>Pedido #{pedidoConfirmado.id}</p>
+                                            <p>Status: {pedidoConfirmado.status}</p>
+                                            <button
+                                                className="confirmar-pedido"
+                                                onClick={() => {
+                                                    setRealizarPedido(false);
+                                                    setPedidoConfirmado(null);
+                                                    setCarrinhoAberto(false);
+                                                }}
+                                            >
+                                                Fechar
+                                            </button>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <h2>Finalizando seu pedido!</h2>
+                                            <p>Confira seu pedido antes de confirmar:</p>
+
+                                            {itensCarrinho.map((item) => (
+                                                <p key={item.id}>
+                                                    {item.quantidade}x {item.nome} -
+                                                    R$ {(item.preco * item.quantidade).toFixed(2)}
+                                                </p>
+                                            ))}
+
+                                            <div className="form-group">
+                                                <label htmlFor="nomeCliente">Seu nome:</label>
+                                                <input
+                                                    type="text"
+                                                    id="nomeCliente"
+                                                    value={nomeCliente}
+                                                    onChange={(e) => setNomeCliente(e.target.value)}
+                                                    placeholder="Digite seu nome"
+                                                    required
+                                                />
+                                            </div>
+
+                                            {erroPedido && <p className="cardapio-erro">{erroPedido}</p>}
+
+                                            <button
+                                                className="confirmar-pedido"
+                                                onClick={confirmarPedido}
+                                                disabled={enviandoPedido || nomeCliente.trim() === ""}
+                                            >
+                                                {enviandoPedido ? "Enviando..." : "Confirmar Pedido"}
+                                            </button>
+
+                                            <button
+                                                className="cancelar-pedido"
+                                                onClick={() => setRealizarPedido(false)}
+                                                disabled={enviandoPedido}
+                                            >
+                                                Cancelar
+                                            </button>
+                                        </>
+                                    )}
+                                </div>
+                            </div>
+                        )}
                     </div>
                 )}
 

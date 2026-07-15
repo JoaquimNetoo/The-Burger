@@ -6,6 +6,9 @@ import Cadastro from "./pages/Cadastro";
 import Dashboard from "./pages/Dashboard";
 import Cardapio from "./pages/Cardapio/Cardapio";
 import Admin from "./pages/Admin/Admin";
+import AdminPedidos from "./pages/AdminPedidos/AdminPedidos";
+import ConsultarPedidos from "./pages/ConsultarPedidos/ConsultarPedidos";
+
 
 function AppRoutes() {
     return (
@@ -17,6 +20,9 @@ function AppRoutes() {
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/cardapio" element={<Cardapio />} />
                 <Route path="/admin" element={<Admin />} />
+                <Route path="/admin/pedidos" element={<AdminPedidos />} />
+                <Route path="/consultarPedidos" element={<ConsultarPedidos />} />
+
             </Routes>
         </BrowserRouter>
     );

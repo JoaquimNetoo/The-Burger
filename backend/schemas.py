@@ -27,8 +27,9 @@ class ItemPedidoIn(BaseModel):
     preco_unitario: float
     quantidade: int
 
-
+    
 class PedidoCreate(BaseModel):
+    nome_cliente: str
     itens: list[ItemPedidoIn]
 
 
@@ -42,8 +43,10 @@ class ItemPedidoOut(BaseModel):
     class Config:
         from_attributes = True
 
+
 class PedidoOut(BaseModel):
     id: int
+    nome_cliente: str
     status: StatusPedido
     total: float
     criado_em: datetime
@@ -56,3 +59,11 @@ class StatusUpdate(BaseModel):
     status: StatusPedido
 
     
+
+class LoginRequest(BaseModel):
+    username: str
+    password: str
+
+
+class TokenResponse(BaseModel):
+    token: str

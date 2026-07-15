@@ -13,7 +13,10 @@ function Admin() {
         setErro(null);
 
         try {
-            const res = await fetch(`${import.meta.env.VITE_API_URL}/admin/login`, {
+            const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+
+            // dentro do handleSubmit:
+            const res = await fetch(`${API_URL}/admin/login`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ username, password }),
